@@ -133,3 +133,31 @@ BEGIN
     END IF;
 END;
 ```
+
+![trigger 1](https://github.com/ntwari-cedric/pl-sql-group_assignment-group-B/blob/main/trigger%201%20creation.png?raw=true)
+
+
+## 📝 **Trigger 2: Audit Logging (Records Violations)**
+
+This trigger logs **who attempted**, **when**, and **what action** was blocked.
+
+```sql
+CREATE OR REPLACE TRIGGER trg_log_access_violation
+BEFORE INSERT ON student_records
+FOR EACH ROW
+BEGIN
+    IF fn_is_access_allowed() = 0 THEN
+        INSERT INTO access_log
+            (student_id, student_name, attempted_action, attempt_time, message)
+        VALUES
+            (:NEW.student_id,
+             (SELECT s.student_name 
+                FROM student s 
+               WHERE s.student_id = :NEW.student_id),
+             'INSERT into student_records',
+             SYSDATE,
+             'Unauthorized attempt outside allowed days/hours');
+    END IF;
+END;
+```
+![trigger 2](https://github.com/ntwari-cedric/pl-sql-group_assignment-group-B/blob/main/trigger%20cleation.png?raw=true)
