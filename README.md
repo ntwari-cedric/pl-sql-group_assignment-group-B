@@ -189,16 +189,6 @@ All business rules are centralized inside a single function, making updates easy
 
 ---
 
-## 🚀 **How to Use This Repository**
-
-1. Clone the repository
-2. Run all SQL scripts in your MySQL database
-3. Add sample students
-4. Test insert operations during allowed and disallowed periods
-5. Check the `access_log` table to confirm proper logging
-
----
-
 ## 📘 **Conclusion**
 
 This project demonstrates a clean, modular, and professional implementation of AUCA’s access policy using:
@@ -208,6 +198,5 @@ This project demonstrates a clean, modular, and professional implementation of A
 * ✔ Structured audit logs
 * ✔ Student identity integration
 
-It meets all academic requirements and follows industry-standard database design practices.
 
 
