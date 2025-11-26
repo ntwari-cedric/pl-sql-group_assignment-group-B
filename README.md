@@ -161,3 +161,53 @@ BEGIN
 END;
 ```
 ![trigger 2](https://github.com/ntwari-cedric/pl-sql-group_assignment-group-B/blob/main/trigger%20cleation.png?raw=true)
+
+## 🔒 **Security Principles Implemented**
+
+### 1. **Least Privilege Access**
+
+Users can only access the system during designated operational periods.
+
+### 2. **Separation of Enforcement & Logging**
+
+Two-trigger architecture ensures:
+
+* Enforcement trigger blocks unauthorized actions
+* Logging trigger records evidence for administrators
+
+### 3. **Modularity**
+
+All business rules are centralized inside a single function, making updates easy.
+
+---
+
+## 📊 **Example Log Output**
+
+| student_id | student_name | action | time             | message                                    |
+| ---------- | ------------ | ------ | ---------------- | ------------------------------------------ |
+| 305        | Jean Claude  | INSERT | 2025-11-21 21:13 | Unauthorized attempt outside allowed hours |
+
+---
+
+## 🚀 **How to Use This Repository**
+
+1. Clone the repository
+2. Run all SQL scripts in your MySQL database
+3. Add sample students
+4. Test insert operations during allowed and disallowed periods
+5. Check the `access_log` table to confirm proper logging
+
+---
+
+## 📘 **Conclusion**
+
+This project demonstrates a clean, modular, and professional implementation of AUCA’s access policy using:
+
+* ✔ One function
+* ✔ Two triggers
+* ✔ Structured audit logs
+* ✔ Student identity integration
+
+It meets all academic requirements and follows industry-standard database design practices.
+
+
