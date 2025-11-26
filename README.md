@@ -10,7 +10,7 @@
 2. **Munyanturire Kaliza Liesse** – 28410  
 3. **Himba Aimee Mireille** – 28220  
 4. **Ntwari Cedric** – 28228  
-5. **Singizwa Boncoeur** – 28228  
+5. **Singizwa Boncoeur** – 28308 
 6. **Irembere Olivier** – 28392  
 7. **Uwase Sonia Umutoni** – 28352
 
