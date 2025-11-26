@@ -78,3 +78,33 @@ CREATE TABLE access_log (
 ```
 
 ![access table](https://github.com/ntwari-cedric/pl-sql-group_assignment-group-B/blob/main/table%20accces.png?raw=true)
+
+## 🔧 **Modular Access-Control Function**
+
+Instead of embedding business rules inside triggers, we implement a **dedicated function**, improving maintainability and respecting good database design practices.
+
+```sql
+CREATE OR REPLACE FUNCTION fn_is_access_allowed
+RETURN NUMBER
+IS
+    v_day  VARCHAR2(10);
+    v_hour NUMBER;
+BEGIN
+    -- Get current day and hour
+    v_day  := TO_CHAR(SYSDATE, 'DY', 'NLS_DATE_LANGUAGE=ENGLISH');
+    v_hour := TO_NUMBER(TO_CHAR(SYSDATE, 'HH24'));
+
+    -- Rule 1: Block weekends (Sat/Sun)
+    IF v_day IN ('SAT', 'SUN') THEN
+        RETURN 0;
+    END IF;
+
+    -- Rule 2: Block outside 8AM–5PM
+    IF v_hour < 8 OR v_hour >= 17 THEN
+        RETURN 0;
+    END IF;
+
+    RETURN 1; -- Allowed
+END;
+```
+
